@@ -1,0 +1,24 @@
+{{define "list-svg-icon"}}
+<svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg>
+{{end}}
+
+{{define "close-svg-icon"}}
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+</svg>
+{{end}}
+
+{{define "header"}}
+<header class="header p-3 position-absolute start-0 top-0 end-0">
+    <div class="d-flex justify-content-between align-items-center">
+        <a href="/" class="text-decoration-none text-white fs-3 fw-bold">Isluad</a>
+        <div>
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle Navigation">
+                {{template "list-svg-icon"}}
+            </button>
+        </div>
+    </div>
+</header>
+{{end}}

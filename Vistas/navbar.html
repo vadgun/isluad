@@ -1,0 +1,47 @@
+{{define "navbar"}}
+<nav class="collapse navbar-collapse dropdown-nav" id="navbar">
+  <div class="dropdown-nav__container container-xxl d-flex align-items-start align-items-md-center">
+    <div class="row align-items-start">
+      <div class="col-12 col-sm-4 mt-4">
+        <a href="/paquetes" class="row text-decoration-none">
+          <div class="col-2 col-sm-12 mb-4">
+            <img src="Recursos/Imagenes/Fondos/card-paquetes.jpg" alt="Paquetes" class="img-fluid" width="553" height="746" loading="lazy">
+          </div>
+          <div class="col-10">
+            <h3>Paquetes</h3>
+            <p>Bodas, XV años, cumpleaños, bautizos.</p>
+            <p>Ver mas<i class="i bi-arrow-right-short"></i></p>
+          </div>
+        </a>
+      </div>
+      <div class="col-12 col-sm-4 mt-4">
+        <a href="/reservaciones" class="row text-decoration-none">
+          <div class="col-2 col-sm-12 mb-4">
+            <img src="Recursos/Imagenes/Fondos/card-reservaciones-2.jpg" alt="Reservaciones" class="img-fluid" width="553" height="746" loading="lazy">
+          </div>
+          <div class="col-10">
+            <h3>Reservaciones</h3>
+            <p>Reserva tu fecha y planea tu evento.</p>
+            <p>Ver mas<i class="i bi-arrow-right-short"></i></p>
+          </div>
+        </a>
+      </div>
+      <div class="col-12 col-sm-4 mt-4">
+        <a href="/servicios" class="row text-decoration-none">
+          <div class="col-2 col-sm-12 mb-4">
+            <img src="Recursos/Imagenes/Fondos/card-servicios.jpg" alt="Servicios" class="img-fluid" width="553" height="746" loading="lazy">
+          </div>
+          <div class="col-10">
+            <h3>Servicios</h3>
+            <p>Banquetes, entretenimiento, catering y mucho mas</p>
+            <p>Ver mas<i class="i bi-arrow-right-short"></i></p>
+          </div>
+        </a>
+      </div>
+    </div>
+      <button class="navbar-toggler dropdown-nav__closeNavBtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle Navigation">
+        {{template "close-svg-icon"}}
+      </button>
+  </div>
+</nav>
+{{end}}
