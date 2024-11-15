@@ -94,7 +94,7 @@ a:hover{color: #0979b2}
   }
 }
 
-.hero__video {
+/* .hero__video {
   position: absolute;
   top:50%;
   left: 50%;
@@ -103,6 +103,17 @@ a:hover{color: #0979b2}
   width: auto;
   height: auto;
   transform: translateX(-50%) translateY(-50%);
+} */
+
+.hero__video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw; /* Ajusta el video al ancho de la ventana */
+  height: 100vh; /* Ajusta el video a la altura de la ventana */
+  object-fit: cover; /* Ajusta el video para que se cubra sin distorsionarse */
+  object-position: center; /* Centra el video */
+  transform: translate(-50%, -50%);
 }
 
 .hero__overlay {
