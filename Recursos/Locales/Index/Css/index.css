@@ -213,3 +213,9 @@ a:hover{color: #0979b2}
 .footer .border-highlight {
   border-top: 1px solid var(--primary-color-highlight);
 }
+
+.serviciosmain{
+  background-image: url("../../../../Recursos/Imagenes/Fondos/fondo-1-desktop-4k.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+}
