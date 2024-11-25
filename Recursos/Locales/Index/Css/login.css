@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    height: 100vh;
+    /* Gradiente lineal de azul a morado */
+    background: linear-gradient(to right, #4facfe, #8e44ad);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "Parkinsans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+:root{
+    --primary-color: #0a1118;
+    --primary-color-highlight: #233D54;
+  }
+
+  html {scroll-behavior: smooth;}
+
+a{color: var(--primary-color);}
+a:hover{color: #0979b2}
+
+/* width */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--bs-dark); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

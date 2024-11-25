@@ -19,6 +19,10 @@ func main() {
 	app.Get("/paquetes", indexcontroller.Paquetes)
 	app.Get("/reservaciones", indexcontroller.Reservaciones)
 	app.Get("/cotizaciones", indexcontroller.Cotizaciones)
+	app.Get("/login", indexcontroller.Login)
+
+	app.Post("/administracion", indexcontroller.Administracion)
+	app.Post("/guardarcotizacion", indexcontroller.GuardarCotizacion)
 
 	// Server
 	app.Listen(":8080")

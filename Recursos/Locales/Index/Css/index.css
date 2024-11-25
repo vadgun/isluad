@@ -219,3 +219,25 @@ a:hover{color: #0979b2}
   background-size:cover;
   background-repeat: no-repeat;
 }
+
+.reservacionesmain{
+  background-image: url("../../../../Recursos/Imagenes/Fondos/fondo-3-desktop-4k.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.paquetesmain{
+  background-image: url("../../../../Recursos/Imagenes/Fondos/fondo-2-desktop-4k.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.cotizacionesmain{
+  background-image: url("../../../../Recursos/Imagenes/Fondos/fondo-4-desktop-4k.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.mycss{
+  padding-top: 25px;
+}
