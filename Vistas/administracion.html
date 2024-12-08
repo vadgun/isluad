@@ -1,1 +1,169 @@
-<h1>Hola Administrador</h1>
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Isluad | Administración</title>
+    <link rel="stylesheet" type="text/css" href="Recursos/Generales/Plugins/Bootstrap/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Recursos/Generales/Plugins/DataTables/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="Recursos/Locales/Index/Css/administracion.css">
+    {{template "font-parkinsans"}}
+</head>
+<body>
+    <div class="sidebar">
+        <nav class="nav flex-column">
+            <h5 id="isluad" class="text-center text-white">ISLUAD</h5>
+            <a class="nav-link" href="Javascript:Obtener('Panel')">
+                <span class="icon">
+                    <i class="bi bi-grid-fill"></i>
+                </span>
+                <span class="description">Panel</span>
+            </a>
+            <a class="nav-link" href="Javascript:Obtener('Servicios')">
+                <span class="icon">
+                    <i class="bi bi-person-lines-fill"></i>
+                </span>
+                <span class="description">Servicios</span>
+            </a>
+            <a class="nav-link" href="Javascript:Obtener('Cotizaciones')">
+                <span class="icon">
+                    <i class="bi bi-card-checklist"></i>
+                </span>
+                <span class="description">Cotizaciones</span>
+            </a>
+            <a class="nav-link" href="Javascript:Obtener('Reservaciones')">
+                <span class="icon">
+                    <i class="bi bi-card-checklist"></i>
+                </span>
+                <span class="description">Reservaciones</span>
+            </a>
+            <a class="nav-link" href="Javascript:Obtener('Calendario')">
+                <span class="icon">
+                    <i class="bi bi-calendar-fill"></i>
+                </span>
+                <span class="description">Calendario</span>
+            </a>
+            <a class="nav-link" href="/logout">
+                <span class="icon">
+                    <i class="bi bi-door-open-fill"></i>
+                </span>
+                <span class="description">Cerrar sesión</span>
+            </a>
+        </nav>
+    </div>
+    
+
+    <main class="main-content" id="main-content">
+
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div id="serviciosalta">
+                    <h4 class="display-4 text-dark">Panel</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-4 mb-4 py-1 rectangle">
+                    <h1>{{.dashboard.ProximoEvento}}</h1>
+                    <span class="icon">
+                        <i class="bi bi-alarm"></i>
+                    </span>
+                    <span>Días próximo evento</span>
+                </div>
+                <div class="col-12 col-sm-4 mb-4 py-1 rectangle">
+                    <h1>{{.dashboard.ActiveServices}}</h1>
+                    <span class="icon">
+                        <i class="bi bi-person-lines-fill"></i>
+                    </span>
+                    <span>Servicios activos</span>
+                </div>
+                <div class="col-12 col-sm-4 mb-4 py-1 rectangle">
+                    <h1>{{.dashboard.CotizacionesSinVer}}</h1>
+                    <span class="icon">
+                        <i class="bi bi-exclamation-circle"></i>
+                    </span>
+                    <span>Cotizaciones sin revisar</span>
+                </div>
+                <div class="col-12 col-sm-4 mb-4 py-1 rectangle">
+                    <h1>{{.dashboard.Reservaciones}}</h1>
+                    <span class="icon">
+                        <i class="bi bi-calendar-check-fill"></i>
+                    </span>
+                    <span>Reservaciones</span>
+                </div>
+                <div class="col-12 col-sm-4 mb-4 py-1 rectangle">
+                    <h1>{{.dashboard.Eventos}}</h1>
+                    <span class="icon">
+                        <i class="bi bi-calendar2-check"></i>
+                    </span>
+                    <span>Eventos por realizar</span>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- <div class="container fluid">
+            <div class="row text-white">
+                <span>Categorias disponibles:</span>
+                <div class="d-flex py-2">
+                    <a href="Javascript:Categoria('Planificación y Coordinación')" class="btn btn-sm btn-outline-light px-2 mx-2" role="button">Planificación y Coordinación</a>
+                    <a href="Javascript:Categoria('Decoración y Ambientación')" class="btn btn-sm btn-outline-light px-2 mx-2" role="button">Decoración y Ambientación</a>
+                    <a href="Javascript:Categoria('Música y Entretenimiento')" class="btn btn-sm btn-outline-light px-2 mx-2" role="button">Música y Entretenimiento</a>
+                    <a href="Javascript:Categoria('Alimentos y Bebidas')" class="btn btn-sm btn-outline-light px-2 mx-2" role="button">Alimentos y Bebidas</a>
+                    <a href="Javascript:Categoria('Documentos y Ceremonias')" class="btn btn-sm btn-outline-light px-2 mx-2" role="button">Documentos y Ceremonias</a>
+                    <a href="Javascript:Categoria('Fotografía y Recuerdos')" class="btn btn-sm btn-outline-light px-2 mx-2" role="button">Fotografía y Recuerdos</a>
+                    <a href="Javascript:Categoria('Servicios Especiales')" class="btn btn-sm btn-outline-light px-2 mx-2" role="button">Servicios Especiales</a>
+                    <a href="Javascript:Categoria('Todos los Servicios')" class="btn btn-sm btn-outline-light px-2 mx-2" role="button">Todos los Servicios</a>
+   
+                </div>
+            </div>
+        </div>
+
+        <div class="container fluid">
+            <div id="tables" class="row text-white">
+            </div>
+        </div> -->
+<!-- 
+        <div class="container fluid calendario">
+            <div class="calendar-container">
+                <div class="calendar-header">
+                  <button id="prev-month">◀</button>
+                  <span class="month-year" id="month-year">
+                    <span id="month-label"></span> <span id="year-label"></span>
+                  </span>
+                  <button id="next-month">▶</button>
+                </div>
+                <div class="month-selector" id="month-selector">
+                  <div class="month-options">
+                    <span data-month="0">Enero</span><span data-month="1">Febrero</span>
+                    <span data-month="2">Marzo</span><span data-month="3">Abril</span>
+                    <span data-month="4">Mayo</span><span data-month="5">Junio</span>
+                    <span data-month="6">Julio</span><span data-month="7">Agosto</span>
+                    <span data-month="8">Septiembre</span><span data-month="9">Octubre</span>
+                    <span data-month="10">Noviembre</span><span data-month="11">Diciembre</span>
+                  </div>
+                </div>
+                <input type="date" id="date-input">
+                <div class="calendar-body">
+                  <div class="days-header">
+                    <span>Dom</span><span>Lun</span><span>Mar</span>
+                    <span>Mie</span><span>Jue</span><span>Vie</span><span>Sab</span>
+                  </div>
+                  <div class="days-grid" id="calendar-days"></div>
+                </div>
+              </div>
+        </div> -->
+        
+    </main>
+    {{template "modal-2"}}
+    <script src="Recursos/Generales/Plugins/Jquery/jquery-3.7.1.min.js"></script>
+    <script src="Recursos/Generales/Plugins/Bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="Recursos/Generales/Plugins/DataTables/datatables.min.js"></script>
+    <script src="Recursos/Locales/Index/Js/administracion.js"></script>
+</body>
+</html>
+

@@ -21,6 +21,9 @@ func main() {
 	app.Get("/cotizaciones", indexcontroller.Cotizaciones)
 	app.Get("/login", indexcontroller.Login)
 
+	app.Post("/services", indexcontroller.Dashboard)
+	app.Post("/categoria", indexcontroller.Categoria)
+
 	app.Post("/administracion", indexcontroller.Administracion)
 	app.Post("/guardarcotizacion", indexcontroller.GuardarCotizacion)
 
