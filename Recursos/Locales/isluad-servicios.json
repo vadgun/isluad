@@ -1,0 +1,442 @@
+[
+    {
+        "Service": "WeddingPlanner",
+        "Titulo": "Wedding planner",
+        "Categoria": "Planificación y Coordinación",
+        "Descripcion": "¿Qué hace un wedding planner? Para entender qué es un wedding planner, hay que pensar en una persona experta que se encarga de asistir a los futuros cónyuges durante los preparativos de la boda y también el día de su celebración. Un coordinador que propone, asesora y se preocupa de que todo salga bien.",
+        "Costo": 25000,
+        "Activo": true
+    },
+    {
+        "Service": "Hostess",
+        "Titulo": "Hostess",
+        "Categoria": "Planificación y Coordinación",
+        "Descripcion": "La Hostess es la primera persona del establecimiento que mantendrá el contacto con los invitados, por ello, tiene gran repercusión en la impresión inicial del invitado. La Hostess habrá de saludar cortésmente a todo invitado que asista al evento y acomodarlos en la mesa pertinente.La Hostess es la primera persona del establecimiento que mantendrá el contacto con los invitados, por ello, tiene gran repercusión en la impresión inicial del invitado. La Hostess habrá de saludar cortésmente a todo invitado que asista al evento y acomodarlos en la mesa pertinente.",
+        "Costo": 3300,
+        "Activo": true
+    },
+    {
+        "Service": "MaestroDeCeremonia",
+        "Titulo": "Maestro de ceremonia",
+        "Categoria": "Planificación y Coordinación",
+        "Descripcion": "Es una persona que dependiendo del tipo de evento se encarga de dirigir o desarrollar el evento desde un punto protagónico. En otras palabras, estamos hablando de un anfitrión, el cual es el responsable de mantener el orden y captar la atención de las personas para que puedan disfrutar del evento.",
+        "Costo": 2800,
+        "Activo": true
+    },
+    {
+        "Service": "Niñera",
+        "Titulo": "Niñera",
+        "Categoria": "Planificación y Coordinación",
+        "Descripcion": "Los cuidadores de niños cuidan de niños y bebés cuyos padres disfrutan del evento. Además de proporcionar los cuidados básicos con responsabilidades prácticas como cuidarlos durante el evento y darles de comer.",
+        "Costo": 1200,
+        "Activo": true
+    },
+    {
+        "Service": "Seguridad",
+        "Titulo": "Seguridad",
+        "Categoria": "Planificación y Coordinación",
+        "Descripcion": "Se encargará de proteger y vigilar a las personas y los bienes que se encuentran en el recinto.",
+        "Costo": 800,
+        "Activo": true
+    },
+    {
+        "Service": "TransporteDeNovios",
+        "Titulo": "Transporte de novios",
+        "Categoria": "Planificación y Coordinación",
+        "Descripcion": "Este servicio cuenta con un automovil para trasladarse desde la iglesia hasta donde es el evento con el lema recien casados.",
+        "Costo": 1400,
+        "Activo": true
+    },
+    {
+        "Service": "TransporteDeInvitados",
+        "Titulo": "Transporte de invitados",
+        "Categoria": "Planificación y Coordinación",
+        "Descripcion": "Los invitados podran disfrutar de ser llevados desde su hospedaje hasta el lugar del evento.",
+        "Costo": 1900,
+        "Activo": true
+    },
+    {
+        "Service": "Mobiliario",
+        "Titulo": "Mobiliario",
+        "Categoria": "Decoración y Ambientación",
+        "Descripcion": "Mobiliario adicional para tu evento.",
+        "Costo": 2800,
+        "Activo": true
+    },
+    {
+        "Service": "Carpa",
+        "Titulo": "Carpa",
+        "Categoria": "Decoración y Ambientación",
+        "Descripcion": "Agrega una carpa que te cubrira de la lluvia en el patio del evento.",
+        "Costo": 2100,
+        "Activo": true
+    },
+    {
+        "Service": "PistaDeBaile",
+        "Titulo": "Pista de baile",
+        "Categoria": "Decoración y Ambientación",
+        "Descripcion": "Agrega una pista de baile de 10x10 para tu evento y disfruta del baile.",
+        "Costo": 2200,
+        "Activo": true
+    },
+    {
+        "Service": "GlobosLED",
+        "Titulo": "Globos LED",
+        "Categoria": "Decoración y Ambientación",
+        "Descripcion": "Los Globos LED sirven para dar mayor iluminacion a tu evento.",
+        "Costo": 4400,
+        "Activo": true
+    },
+    {
+        "Service": "CentrosDeMesa",
+        "Titulo": "Centros de mesa",
+        "Categoria": "Decoración y Ambientación",
+        "Descripcion": "Los mejores centros de mesa diseñados elaboradamente a mano por artesanas expertas.",
+        "Costo": 6600,
+        "Activo": true
+    },
+    {
+        "Service": "Entelado",
+        "Titulo": "Entelado",
+        "Categoria": "Decoración y Ambientación",
+        "Descripcion": "Crea una atmósfera diferente, nuestros entelados adornaran el cielo de tus invitados.",
+        "Costo": 4500,
+        "Activo": true
+    },
+    {
+        "Service": "IluminacionAmbiental",
+        "Titulo": "Iluminación",
+        "Categoria": "Decoración y Ambientación",
+        "Descripcion": "Las luces ambientales son esenciales para establecer la atmósfera general del evento. Estas luces están diseñadas para iluminar el espacio sin crear sombras duras.",
+        "Costo": 7900,
+        "Activo": true
+    },
+    {
+        "Service": "AmbientacionFloral",
+        "Titulo": "Ambientacion floral",
+        "Categoria": "Decoración y Ambientación",
+        "Descripcion": "El diseño floral se refiere a la elaboración de una composición a base de flores y plantas, el diseño se suele seguir un mismo patrón de trabajo.",
+        "Costo": 7600,
+        "Activo": true
+    },
+    {
+        "Service": "DecoracionCeremoniaReligiosa",
+        "Titulo": "Decoracion de ceremonia religiosa",
+        "Categoria": "Decoración y Ambientación",
+        "Descripcion": "La decoración más habitual para el altar son las flores. Algunas estructuras y las bancas pueden ornamentarse con globos chinos, listones etc.",
+        "Costo": 2200,
+        "Activo": true
+    },
+    {
+        "Service": "DecoracionCivil",
+        "Titulo": "Decoracion civil",
+        "Categoria": "Decoración y Ambientación",
+        "Descripcion": "Temáticas de decoración para boda civil que varían de acuerdo al lugar, fecha, los gustos de la pareja y el tiempo disponible para realizarla. La decoración puede estar a cargo de la pareja, o bien, puede ser encabezada por el wedding planner que busque a los proveedores adecuados para la celebración. ",
+        "Costo": 1200,
+        "Activo": true
+    },
+    {
+        "Service": "GrupoVersatil",
+        "Titulo": "Grupo Músical",
+        "Categoria": "Música y Entretenimiento",
+        "Descripcion": "Un Grupo Versátil es principalmente un grupo que tiene una amplio repertorio musical. No se encasilla en un solo género, sino que tiene variedad de música al momento de tocar en una fiesta.",
+        "Costo": 6500,
+        "Activo": true
+    },
+    {
+        "Service": "DJ",
+        "Titulo": "DJ",
+        "Categoria": "Música y Entretenimiento",
+        "Descripcion": "Persona que selecciona y mezcla música grabada propia o de otros compositores y artistas, para ser escuchada por los invitados durante todo o una parte del evento.",
+        "Costo": 6500,
+        "Activo": true
+    },
+    {
+        "Service": "MusicaCena",
+        "Titulo": "Música para cena",
+        "Categoria": "Música y Entretenimiento",
+        "Descripcion": "Música instrumental: obras interpretadas exclusivamente por instrumentos musicales, con o sin participación de la voz.",
+        "Costo": 6500,
+        "Activo": true
+    },
+    {
+        "Service": "MusicaIglesia",
+        "Titulo": "Música en iglesia",
+        "Categoria": "Música y Entretenimiento",
+        "Descripcion": "Una ceremonia de boda católica tiene un mínimo de 5 canciones. Estas canciones están ligadas directamente con algunas de las partes de la misa que se oficia y también con la recepción de invitados y salida de la iglesia.",
+        "Costo": 6500,
+        "Activo": true
+    },
+    {
+        "Service": "Mariachi",
+        "Titulo": "Mariachi",
+        "Categoria": "Música y Entretenimiento",
+        "Descripcion": "Las bandas de mariachis consolidadas y de gran prestigio pueden cobrar tarifas más altas debido a su reputación y experiencia . Algunas bandas también pueden ofrecer servicios adicionales, como ser maestros de ceremonias o proporcionar equipos de sonido, lo que puede afectar el costo total.",
+        "Costo": 6500,
+        "Activo": true
+    },
+    {
+        "Service": "ShowSorpresa",
+        "Titulo": "Show sorpresa",
+        "Categoria": "Música y Entretenimiento",
+        "Descripcion": "Las sorpresas en las eventos son algo cada vez más habitual. Y es que consiguen que este día tan especial para nosotros tenga el punto de originalidad y diversión que buscamos.",
+        "Costo": 6500,
+        "Activo": true
+    },
+    {
+        "Service": "Callejonada",
+        "Titulo": "Pirotecnia",
+        "Categoria": "Música y Entretenimiento",
+        "Descripcion": "La experiencia consiste en un paseo durante la tarde o la noche, durante el cual las grupos musicales vestidos con o sin trajes tradicionales te llevan a recorrer el corazón de la urbe a pie.",
+        "Costo": 6500,
+        "Activo": true
+    },
+    {
+        "Service": "CeremoniaEspcecial",
+        "Titulo": "Ceremonia especial",
+        "Categoria": "Música y Entretenimiento",
+        "Descripcion": "Serie de actos realizados con motivo de una ocasión especial o para marcar un rito de pasaje. Las ceremonias pueden ser informales o formales.",
+        "Costo": 6500,
+        "Activo": true
+    },
+    {
+        "Service": "Pirotecnia",
+        "Titulo": "Pirotecnia",
+        "Categoria": "Música y Entretenimiento",
+        "Descripcion": "Contamos con los fuegos artificiales más utilizados en las celebraciones. Petardos, Bengalas, Cohetes, Pirotecnia fría, Piroletreros.",
+        "Costo": 6500,
+        "Activo": true
+    },
+    {
+        "Service": "Banquete",
+        "Titulo": "Banquete",
+        "Categoria": "Alimentos y Bebidas",
+        "Descripcion": "Banquete, extendido por todas las culturas de la tierra, en el que se congregan familiares y amigos de ambos cónyuges durante la celebración del matrimonio o cualquier otra celebración como XV años etc.",
+        "Costo": 22500,
+        "Activo": true
+    },
+    {
+        "Service": "MenuInfantil",
+        "Titulo": "Menú infantil",
+        "Categoria": "Alimentos y Bebidas",
+        "Descripcion": "Entre los niños suelen triunfar platos como el pollo, la sopa casera, pizza, pasta, hamburguesa, sandwiches, queso, jamón, filetes empanizados",
+        "Costo": 7500,
+        "Activo": true
+    },
+    {
+        "Service": "MenuTrasnochador",
+        "Titulo": "Menú trasnochador",
+        "Categoria": "Alimentos y Bebidas",
+        "Descripcion": "El menú de trasnochados es la comida que se sirve al final del evento, es cuando la fiesta está por terminar y todos sienten los estragos de la festividad, es lo que se refiere a una segunda ronda de alimentos para todos los que aún quedan en la fiesta",
+        "Costo": 9500,
+        "Activo": true
+    },
+    {
+        "Service": "MesaDePostres",
+        "Titulo": "Mesa de postres",
+        "Categoria": "Alimentos y Bebidas",
+        "Descripcion": "Una mesa de dulces o de postres como su nombre lo indica es una estación o mesa decorada y abastecida con una gran variedad de golosinas, galletas, postres y todo lo que se te ocurra que pueda satisfacer los paladares más golosos.",
+        "Costo": 4500,
+        "Activo": true
+    },
+    {
+        "Service": "MesaQuesos",
+        "Titulo": "Mesa de quesos, pan y carnes frías",
+        "Categoria": "Alimentos y Bebidas",
+        "Descripcion": "La mesa de quesos es una manera fácil de añadir un toque de sofisticación a cualquier recepción de bodas. Las tablas de quesos se pueden presentar de manera elegante con diferentes tipos de quesos, frutas, frutos secos, panes y mermeladas.",
+        "Costo": 3500,
+        "Activo": true
+    },
+    {
+        "Service": "Pastel",
+        "Titulo": "Pastel",
+        "Categoria": "Alimentos y Bebidas",
+        "Descripcion": "El pastel de bodas, cumpleaños o celebración es el postre tradicional que se sirve a los invitados de una evento después de la ceremonia principal.",
+        "Costo": 6500,
+        "Activo": true
+    },
+    {
+        "Service": "CandyBar",
+        "Titulo": "Candy bar",
+        "Categoria": "Alimentos y Bebidas",
+        "Descripcion": "El Candy bar es una mesa dulce que se suele poner en las celebraciones durante la fiesta como recena. Se trata de una mesa tipo buffet con toda variedad de dulces y chuces decorada de forma muy sweet para atraer todas las miradas, ¡y paladares!",
+        "Costo": 2500,
+        "Activo": true
+    },
+    {
+        "Service": "SnackBar",
+        "Titulo": "Snack bar",
+        "Categoria": "Alimentos y Bebidas",
+        "Descripcion": "Un Snack Bar es nada menos que un buffet o barra libre de botanas. Consiste en una mesa donde se presentan diferentes botanas, golosinas, caramelos y todo tipo de botanas para que los invitados puedan servirse ellos mismos.",
+        "Costo": 7500,
+        "Activo": true
+    },
+    {
+        "Service": "BarraCafe",
+        "Titulo": "Coffe Bar",
+        "Categoria": "Alimentos y Bebidas",
+        "Descripcion": "Mesa donde se sirven deliciosos cafés y pasteles de distintos tipos y con buena pinta. Pequeños rincones como estos llaman la atención de nuestros invitados, a la par que les ayudan a recargar pilas después de la comida del banquete de bodas.",
+        "Costo": 5500,
+        "Activo": true
+    },
+    {
+        "Service": "VinoBrindis",
+        "Titulo": "Vino para brindis",
+        "Categoria": "Alimentos y Bebidas",
+        "Descripcion": "El vino que se usa para brindar en una boda suele ser un vino espumoso, como el champán. Los vinos espumosos tienen un sabor fresco y afrutado, y su burbuja suave y delicada añade un toque de celebración a la ocasión.",
+        "Costo": 4500,
+        "Activo": true
+    },
+    {
+        "Service": "CoctelBienvenida",
+        "Titulo": "Coctel de bienvenida",
+        "Categoria": "Alimentos y Bebidas",
+        "Descripcion": "El que recibe a los invitados, por tanto, es una oportunidad para darles las gracias por estar allí y crear un ambiente agradable y festivo desde el primer momento.",
+        "Costo": 3500,
+        "Activo": true
+    },
+    {
+        "Service": "CarroShots",
+        "Titulo": "Carro de shots",
+        "Categoria": "Alimentos y Bebidas",
+        "Descripcion": "Los carros con alcohol para eventos son bebidas que pueden incluir vodka, ginebra, whisky, vino, aguardiente y otros licores.",
+        "Costo": 4500,
+        "Activo": true
+    },
+    {
+        "Service": "Iglesia",
+        "Titulo": "Iglesia",
+        "Categoria": "Documentos y Ceremonias",
+        "Descripcion": "",
+        "Costo": 12500,
+        "Activo": true
+    },
+    {
+        "Service": "Misales",
+        "Titulo": "Misales",
+        "Categoria": "Documentos y Ceremonias",
+        "Descripcion": "",
+        "Costo": 5500,
+        "Activo": true
+    },
+    {
+        "Service": "Ofrendas",
+        "Titulo": "Ofrendas",
+        "Categoria": "Documentos y Ceremonias",
+        "Descripcion": "",
+        "Costo": 24500,
+        "Activo": true
+    },
+    {
+        "Service": "PagoDerechosCiviles",
+        "Titulo": "Pago de derechos ceremonia civil",
+        "Categoria": "Documentos y Ceremonias",
+        "Descripcion": "",
+        "Costo": 21500,
+        "Activo": true
+    },
+    {
+        "Service": "Fotografia",
+        "Titulo": "Fotografía",
+        "Categoria": "Fotografia y Recuerdos",
+        "Descripcion": "",
+        "Costo": 6500,
+        "Activo": true
+    },
+    {
+        "Service": "Video",
+        "Titulo": "Video",
+        "Categoria": "Fotografia y Recuerdos",
+        "Descripcion": "",
+        "Costo": 8500,
+        "Activo": true
+    },
+    {
+        "Service": "SetFotografico",
+        "Titulo": "Set fotográfico",
+        "Categoria": "Fotografia y Recuerdos",
+        "Descripcion": "",
+        "Costo": 22500,
+        "Activo": true
+    },
+    {
+        "Service": "CabinaFotos",
+        "Titulo": "Cabina de fotos instantáneas",
+        "Categoria": "Fotografia y Recuerdos",
+        "Descripcion": "",
+        "Costo": 12500,
+        "Activo": true
+    },
+    {
+        "Service": "LibroFirmas",
+        "Titulo": "Libro de firmas",
+        "Categoria": "Fotografia y Recuerdos",
+        "Descripcion": "",
+        "Costo": 9500,
+        "Activo": true
+    },
+    {
+        "Service": "BurbujasBengCamp",
+        "Titulo": "Burbujas, bengalas y campanas",
+        "Categoria": "Fotografia y Recuerdos",
+        "Descripcion": "",
+        "Costo": 5500,
+        "Activo": true
+    },
+    {
+        "Service": "Salon",
+        "Titulo": "Salon Isluad",
+        "Categoria": "Servicios Especiales",
+        "Descripcion": "",
+        "Costo": 3500,
+        "Activo": true
+    },
+    {
+        "Service": "PlantaLuz",
+        "Titulo": "Planta de luz",
+        "Categoria": "Servicios Especiales",
+        "Descripcion": "",
+        "Costo": 1500,
+        "Activo": true
+    },
+    {
+        "Service": "HotelesInvitados",
+        "Titulo": "Hoteles para invitados",
+        "Categoria": "Servicios Especiales",
+        "Descripcion": "",
+        "Costo": 8500,
+        "Activo": true
+    },
+    {
+        "Service": "Invitaciones",
+        "Titulo": "Invitaciones",
+        "Categoria": "Servicios Especiales",
+        "Descripcion": "",
+        "Costo": 6500,
+        "Activo": true
+    },
+    {
+        "Service": "Papelería",
+        "Titulo": "Papeleria",
+        "Categoria": "Servicios Especiales",
+        "Descripcion": "",
+        "Costo": 4500,
+        "Activo": true
+    },
+    {
+        "Service": "HangOverKit",
+        "Titulo": "Hang over kit",
+        "Categoria": "Servicios Especiales",
+        "Descripcion": "",
+        "Costo": 7500,
+        "Activo": true
+    },
+    {
+        "Service": "HorasExtrasDescorche",
+        "Titulo": "Horas extras, descorche y meseros",
+        "Categoria": "Servicios Especiales",
+        "Descripcion": "",
+        "Costo": 3500,
+        "Activo": true
+    }
+]
