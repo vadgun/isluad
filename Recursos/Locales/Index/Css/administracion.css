@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(to right, #4facfe, #31826f);
+    background: linear-gradient(to right, #5e5d5d, #845976);
 }
 
 html {
@@ -39,6 +39,27 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+/*
+* Custom Container
+*/
+.container-custom {
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 1200px) {
+    .container-custom { width: 1140px; }
+  }
+  
+  @media (min-width: 1400px) {
+    .container-custom { width: 1340px; }
+  }
+  
+  @media (min-width: 1600px) {
+    .container-custom { width: 1520px; }
+  }
 
 .sidebar {
     position: fixed;
@@ -235,4 +256,8 @@ a:hover {
 
 .month-year {
     cursor: pointer;
+}
+
+.bigicon{
+    font-size: 10vh;
 }

@@ -16,12 +16,12 @@ $(document).ready(function () {
             formObject[field.name] = field.value;
         });
 
-        var servicios = {agregados};
+        var servicios = { agregados };
 
         // Combinar los datos del formulario con los datos extra
         var requestData = { ...formObject, ...servicios };
-        
-        console.log("en json", JSON.stringify(requestData));
+
+        // console.log("en json", JSON.stringify(requestData));
 
         $.ajax({
             url: '/guardarcotizacion',
@@ -30,7 +30,7 @@ $(document).ready(function () {
             data: JSON.stringify(requestData),
             success: function (response) {
                 console.log(response);
-                toastCotizacion._config.delay=2500;
+                toastCotizacion._config.delay = 2500;
                 // toastCotizacion._element.lastElementChild.innerText = serviciobutton.textContent;
                 // toastCotizacion.show()
                 alert(response.message)

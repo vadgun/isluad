@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/kataras/iris/v12"
+	"github.com/leekchan/accounting"
 	indexmodel "github.com/vadgun/isluad/Modelos/IndexModel"
 )
 
@@ -95,6 +96,7 @@ func GuardarCotizacion(ctx iris.Context) {
 			extras := indexmodel.Extra{
 				CostoIndividual: servicio.Costo,
 				Comentario:      cotizacion.Agregados[servicio.Service].Comentario,
+				NombreCompleto:  servicio.Titulo,
 			}
 
 			cotizacion.Agregados[servicio.Service] = extras
@@ -129,8 +131,30 @@ func Categoria(ctx iris.Context) {
 		log.Println(err)
 	}
 
-	htmlcode := crearTabla(servicios)
+	htmlcode := crearTablaServicios(servicios)
 	ctx.HTML(htmlcode)
+}
+
+func EditarServicio(ctx iris.Context) {
+	var servicio indexmodel.Servicio
+	if err := ctx.ReadJSON(&servicio); err != nil {
+		ctx.StatusCode(iris.StatusBadRequest)
+		ctx.JSON(iris.Map{
+			"error":  "Error al leer los datos",
+			"detail": err.Error(),
+		})
+		return
+	}
+
+	//Modificar el servicio en la base de datos
+	editado := indexmodel.EditarServicio(servicio)
+	var response Response
+	if editado {
+		response.Mensaje = "Servicio editado correctamente"
+	} else {
+		response.Mensaje = "Ocurrio un problema actualizando el servicio"
+	}
+	ctx.JSON(response)
 }
 
 func Dashboard(ctx iris.Context) {
@@ -215,18 +239,23 @@ func crearHTML(data string) string {
 			categorias[v.Categoria]++
 		}
 
-		htmlcode += `<div class="container fluid"><div class="row text-white"><span>Categorias disponibles:</span><div class="d-flex py-2">`
+		htmlcode += `<div class="container"><div class="row text-white"><span>Categorias disponibles:</span><div class="d-flex py-2">`
 
 		for k, v := range categorias {
 			htmlcode += fmt.Sprintf(`<a href="Javascript:Categoria('%v')" class="btn btn-sm btn-outline-light px-2 mx-2" role="button">%v %v</a>`, k, k, v)
 
 		}
 		htmlcode += fmt.Sprintf(`<a href="Javascript:Categoria('Todos los Servicios')" class="btn btn-sm btn-outline-light px-2 mx-2" role="button">Todos los Servicios %v</a>`, len(servicios))
-		htmlcode += `</div></div></div><div class="container fluid"><div id="tables" class="row text-white"></div></div>`
+		htmlcode += `</div></div></div><div class="container"><div id="tables" class="row text-white"></div></div>`
 	case "Cotizaciones":
+		cotizaciones, _ := indexmodel.GetCotizaciones()
+		htmlcode += crearTablaCotizaciones(cotizaciones)
 	case "Reservaciones":
+		reservaciones, _ := indexmodel.GetReservaciones()
+		htmlcode += crearTablaReservaciones(reservaciones)
+
 	case "Calendario":
-		htmlcode += fmt.Sprintf(`<div class="container fluid calendario">
+		htmlcode += fmt.Sprintf(`<div class="container calendario">
             <div class="calendar-container">
                 <div class="calendar-header">
                   <button id="prev-month">◀</button>
@@ -260,29 +289,195 @@ func crearHTML(data string) string {
 	return htmlcode
 }
 
-func crearTabla(servicios []indexmodel.Servicio) string {
+func crearTablaServicios(servicios []indexmodel.Servicio) string {
 
 	var htmlcode string
-
+	ac := accounting.Accounting{Symbol: "$", Precision: 0}
 	htmlcode += `<table id="example" class="table table-hover table-striped" style="width:100%">`
 	htmlcode += `<thead><tr><th>Nombre</th><th>Costo</th><th>Activo</th><th>Descripcion</th><th>Categoria</th><th>Acciones</th></tr></thead><tbody>`
 
 	for _, v := range servicios {
 		htmlcode += `<tr>`
 		htmlcode += fmt.Sprintf(`<td>%v</td>`, v.Titulo)
-		htmlcode += fmt.Sprintf(`<td class="text-center">%v</td>`, v.Costo)
+		htmlcode += fmt.Sprintf(`<td class="text-center">%v</td>`, ac.FormatMoney(v.Costo))
 		if v.Activo {
-			htmlcode += `<td class="text-center"><i class="bi bi-check-circle"></i></td>`
+			htmlcode += `<td class="text-center"><i class="bi bi-check-circle text-success"></i></td>`
 		} else {
-			htmlcode += `<td class="text-center"><i class="bi bi-dash-circle"></i></td>`
+			htmlcode += `<td class="text-center"><i class="bi bi-dash-circle text-danger"></i></td>`
 		}
-		htmlcode += fmt.Sprintf(`<td>%v</td>`, v.Descripcion)
+
+		if len(v.Descripcion) > 16 {
+			htmlcode += fmt.Sprintf(`<td>%v...</td>`, v.Descripcion[:15])
+		} else {
+			htmlcode += `<td>Sin descripción</td>`
+		}
+
 		htmlcode += fmt.Sprintf(`<td>%v</td>`, v.Categoria)
-		htmlcode += `<td><a href="#" class="me-2 text-decoration-none"><i class="bi bi-pencil"></i><span>Editar</span></a></td>`
+
+		htmlcode += fmt.Sprintf(`<td class="text-center"><a href="#" class="me-2 text-decoration-none" role="button" data-bs-toggle="modal" data-bs-target="#modalVerServicio" data-bs-title="%v" id="%v" data-bs-description="%v" data-bs-category="%v" data-bs-active="%v"
+        data-bs-cost="%v" data-bs-id="%v" ><i class="bi bi-pencil"></i></a></td>`, v.Titulo, v.Service, v.Descripcion, v.Categoria, v.Activo, v.Costo, v.ID.Hex())
+
+		// htmlcode += fmt.Sprintf(`<td><a href="Javascript:VerServicio('%v')" class="me-2 text-decoration-none"><i class="bi bi-pencil"></i></a></td>`, v.ID.Hex())
 		htmlcode += `</tr>`
 
 	}
 
 	htmlcode += `</tbody></table>`
 	return htmlcode
+}
+
+func crearTablaCotizaciones(cotizaciones []indexmodel.Cotizacion) string {
+	var htmlcode string
+	ac := accounting.Accounting{Symbol: "$", Precision: 0}
+	htmlcode += `<table id="cotizaciones" class="table table-hover table-striped" style="width:100%">`
+	htmlcode += `<thead><tr><th>Nombre</th><th>Día de reserva</th><th>Correo</th><th>Telefono</th><th>Invitados</th><th>Servicios</th><th>Costo</th><th>Asignada</th><th>Acciones</th></tr></thead><tbody>`
+
+	for _, v := range cotizaciones {
+		htmlcode += `<tr>`
+		htmlcode += fmt.Sprintf(`<td>%v</td>`, v.Nombre)
+		htmlcode += fmt.Sprintf(`<td>%v</td>`, v.Fecha)
+		htmlcode += fmt.Sprintf(`<td>%v</td>`, v.Correo)
+
+		htmlcode += fmt.Sprintf(`<td class="text-center">%v</td>`, v.Telefono)
+		htmlcode += fmt.Sprintf(`<td class="text-center">%v</td>`, v.Invitados)
+		htmlcode += fmt.Sprintf(`<td class="text-center">%v</td>`, len(v.Agregados))
+		htmlcode += fmt.Sprintf(`<td class="text-center">%v</td>`, ac.FormatMoney(v.CostoTotal))
+		if v.Revisada {
+			htmlcode += `<td class="text-center text-success"><i class="bi bi-check-circle"></i></td>`
+		} else {
+			htmlcode += `<td class="text-center text-danger"><i class="bi bi-dash-circle"></i></td>`
+		}
+		htmlcode += fmt.Sprintf(`<td><a href="Javascript:Editar('%v')" class="me-2 text-decoration-none"><i class="bi bi-pencil"></i></a>
+                    <a href="Javascript:Ver('%v')" class="me-2 text-decoration-none"><i class="bi bi-clipboard-check"></i></a>
+                    <a href="Javascript:Eliminar('%v')" class="me-2 text-decoration-none"><i class="bi bi-trash3"></i></a></td>`, v.ID.Hex(), v.ID.Hex(), v.ID.Hex())
+		htmlcode += `</tr>`
+	}
+
+	htmlcode += `</tbody></table>`
+
+	return htmlcode
+}
+
+func crearTablaReservaciones(reservaciones []indexmodel.Reservacion) string {
+	var htmlcode string
+	ac := accounting.Accounting{Symbol: "$", Precision: 0}
+	htmlcode += `<table id="reservaciones" class="table table-hover table-striped" style="width:100%">`
+	htmlcode += `<thead><tr><th>Nombre</th><th>Día de reserva</th><th>Correo</th><th>Telefono</th><th>Invitados</th><th>Servicios</th><th>Costo</th><th>Asignada</th><th>Acciones</th></tr></thead><tbody>`
+
+	for _, v := range reservaciones {
+		htmlcode += `<tr>`
+		htmlcode += fmt.Sprintf(`<td>%v</td>`, v.Nombre)
+		htmlcode += fmt.Sprintf(`<td>%v</td>`, v.Fecha)
+		htmlcode += fmt.Sprintf(`<td>%v</td>`, v.Correo)
+
+		htmlcode += fmt.Sprintf(`<td class="text-center">%v</td>`, v.Telefono)
+		htmlcode += fmt.Sprintf(`<td class="text-center">%v</td>`, v.Invitados)
+		htmlcode += fmt.Sprintf(`<td class="text-center">%v</td>`, len(v.Agregados))
+		htmlcode += fmt.Sprintf(`<td class="text-center">%v</td>`, ac.FormatMoney(v.CostoTotal))
+		if v.Revisada {
+			htmlcode += `<td class="text-center text-success"><i class="bi bi-check-circle"></i></td>`
+		} else {
+			htmlcode += `<td class="text-center text-danger"><i class="bi bi-dash-circle"></i></td>`
+		}
+		htmlcode += fmt.Sprintf(`<td><a href="Javascript:Editar('%v')" class="me-2 text-decoration-none"><i class="bi bi-pencil"></i></a>
+                    <a href="Javascript:Ver('%v')" class="me-2 text-decoration-none"><i class="bi bi-clipboard-check"></i></a>
+                    <a href="Javascript:Eliminar('%v')" class="me-2 text-decoration-none"><i class="bi bi-trash3"></i></a></td>`, v.ID.Hex(), v.ID.Hex(), v.ID.Hex())
+		htmlcode += `</tr>`
+	}
+
+	htmlcode += `</tbody></table>`
+
+	return htmlcode
+}
+
+func Ver(ctx iris.Context) {
+	cadena := ctx.PostValue("data")
+	cotizacion, err := indexmodel.GetCotizaciones(cadena)
+	if err != nil {
+		log.Println(err)
+	}
+	ctx.JSON(cotizacion[0])
+}
+
+func VerificarFecha(ctx iris.Context) {
+	cadena := ctx.PostValue("data")
+
+	disponible := indexmodel.VerificarFechaDeReserva(cadena)
+	var response Response
+
+	if disponible {
+		response.Mensaje = "Si"
+	} else {
+		response.Mensaje = "No"
+	}
+
+	ctx.JSON(response)
+
+}
+
+type Response struct {
+	Mensaje string `json:"mensaje"`
+}
+
+type RequestData struct {
+	CurrentID string `json:"currentid"`
+}
+
+func GuardarReservacion(ctx iris.Context) {
+	var response Response
+
+	var reservacion indexmodel.Reservacion
+
+	if err := ctx.ReadJSON(&reservacion); err != nil {
+		ctx.StatusCode(iris.StatusBadRequest)
+		ctx.JSON(iris.Map{
+			"error":  "Error al leer los datos",
+			"detail": err.Error(),
+		})
+		return
+	}
+
+	cotizacion, _ := indexmodel.GetCotizaciones(reservacion.CotizacionStrID)
+
+	reservacion.Telefono = cotizacion[0].Telefono
+	reservacion.Correo = cotizacion[0].Correo
+	reservacion.Invitados = cotizacion[0].Invitados
+	reservacion.Nombre = cotizacion[0].Nombre
+	reservacion.Fecha = cotizacion[0].Fecha
+	reservacion.FechaReserva = cotizacion[0].FechaReserva
+	reservacion.FechaCreacion = time.Now()
+
+	fmt.Println(reservacion)
+
+	//Guardar reservacion
+	log.Printf("Reservacion recibida: %v\n", string(reservacion.FechaCreacion.AppendFormat([]byte("Hora: "), time.Kitchen)))
+
+	if !indexmodel.GuardarReservacion(reservacion) {
+		log.Printf("Cotizacion no guardada")
+	}
+
+	// Actualizar la cotizacion a asignada
+
+	actualizadaChannel := make(chan bool)
+	defer close(actualizadaChannel)
+	go func() {
+		actualizadaChannel <- indexmodel.ActualizaCotizacion(reservacion, reservacion.CotizacionStrID)
+	}()
+
+	actualizada := <-actualizadaChannel
+
+	if actualizada {
+		response.Mensaje = "Si"
+	} else {
+		response.Mensaje = "No"
+	}
+
+	// fmt.Println(req)
+
+	// if disponible {
+	// 	response.Mensaje = "Si"
+	// } else {
+	// 	response.Mensaje = "No"
+	// }
+	ctx.JSON(response)
 }

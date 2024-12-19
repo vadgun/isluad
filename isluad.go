@@ -23,9 +23,14 @@ func main() {
 
 	app.Post("/services", indexcontroller.Dashboard)
 	app.Post("/categoria", indexcontroller.Categoria)
+	app.Post("/editarServicio", indexcontroller.EditarServicio)
+
+	app.Post("/ver", indexcontroller.Ver)
+	app.Post("/date", indexcontroller.VerificarFecha)
 
 	app.Post("/administracion", indexcontroller.Administracion)
 	app.Post("/guardarcotizacion", indexcontroller.GuardarCotizacion)
+	app.Post("/guardarreservacion", indexcontroller.GuardarReservacion)
 
 	// Server
 	app.Listen(":8080")

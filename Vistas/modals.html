@@ -1,6 +1,6 @@
 {{define "modal-1"}}
 <!-- Modal -->
-<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -38,7 +38,53 @@
         <!-- El contenido del evento se llenará dinámicamente -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="mt-2 btn btn-sm btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{end}}
+
+{{define "modal-3"}}
+<div class="modal modal-lg fade" id="modalVer" tabindex="-1" aria-labelledby="modalVerLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalVerLabel">Detalles de la Cotización</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- El contenido del evento se llenará dinámicamente -->
+      </div>
+      <div class="modal-footer">
+        <div class="container-fluid">
+          <div class="d-flex justify-content-end">
+              <button type="button" class="mt-2 btn btn-sm btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{end}}
+
+{{define "modal-4"}}
+<div class="modal modal-md fade" id="modalVerServicio" tabindex="-1" aria-labelledby="modalVerServicioLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalVerServicioLabel">Detalles del Servicio</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- El contenido del evento se llenará dinámicamente -->
+      </div>
+      <div class="modal-footer">
+        <div class="container-fluid">
+          <div class="d-flex justify-content-end">
+              <button type="button" class="mt-2 btn btn-sm btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

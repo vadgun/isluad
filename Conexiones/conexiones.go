@@ -6,5 +6,6 @@ const (
 	MONGO_DB_U   = "Usuarios"
 	MONGO_DB_S   = "Servicios"
 	MONGO_DB_C   = "Cotizaciones"
+	MONGO_DB_R   = "Reservaciones"
 	MONGO_DB_CFG = "Configuraciones"
 )
